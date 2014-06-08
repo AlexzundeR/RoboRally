@@ -11,7 +11,7 @@ namespace RoboRally.Model
         public static readonly Int32 RegistersCount = 5;
         public String Name;
 
-        public Byte LastLifes;
+        public Byte Lifes;
 
         private Byte _damage;
 
@@ -21,8 +21,8 @@ namespace RoboRally.Model
 
         public FieldDirection CurrentDirection;
 
-        public Double X;
-        public Double Y;
+        public Int32 X;
+        public Int32 Y;
         private bool _isShutedDown;
         private bool _isCrashed;
 
@@ -33,6 +33,7 @@ namespace RoboRally.Model
             {
                 _registers[i] = new RobotRegister();
             }
+            Lifes = 3;
         }
 
         public void DoAction(RobotAction action)
@@ -122,7 +123,7 @@ namespace RoboRally.Model
             }
         }
 
-        public void SetCurrentPosition(Double x, Double y)
+        public void SetCurrentPosition(Int32 x, Int32 y)
         {
             X = x;
             Y = y;
@@ -170,20 +171,27 @@ namespace RoboRally.Model
             return _isShutedDown;
         }
 
+        public byte GetDamageValue()
+        {
+            return _damage;
+        }
 
         public void GetDamaged()
         {
-            _damage++;
-
-            if (_damage > 4)
+            if (!IsShutedDown())
             {
-                if (_damage == 10)
+                _damage++;
+
+                if (_damage > 4)
                 {
-                    Crash();
-                }
-                else
-                {
-                    BreakRegister(9 - _damage);
+                    if (_damage == 10)
+                    {
+                        Crash();
+                    }
+                    else
+                    {
+                        BreakRegister(9 - _damage);
+                    }
                 }
             }
         }
@@ -196,8 +204,21 @@ namespace RoboRally.Model
         public void Crash()
         {
             _isCrashed = true;
+            Lifes--;
+            if (Lifes == 0)
+            {
+                Dead();
+            }
+            else
+            {
+                
+            }
         }
 
+        public void Dead()
+        {
+            
+        }
 
         public Boolean IsCrashed()
         {
@@ -207,6 +228,18 @@ namespace RoboRally.Model
         public void RepairNextRegister()
         {
             _registers[9 - _damage].Repair();
+        }
+
+        public void Repair()
+        {
+            if (_damage > 0)
+            {
+                if (_damage > 4)
+                {
+                    RepairNextRegister();
+                }
+                _damage--;
+            }
         }
     }
 }
