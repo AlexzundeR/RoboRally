@@ -19,10 +19,11 @@ namespace RoboRally.Model
 
         private readonly RobotRegister[] _registers;
 
-        public FieldDirection CurrentDirection;
+        public FieldDirection CurrentDirection { get;  set; }
 
-        public Int32 X;
-        public Int32 Y;
+        private Int32 _x, _y;
+        public Int32 X { get { return _x; } }
+        public Int32 Y { get { return _y; } }
         private bool _isShutedDown;
         private bool _isCrashed;
 
@@ -40,23 +41,7 @@ namespace RoboRally.Model
         {
             if (action.ActionType == RobotActionType.Move)
             {
-                switch (CurrentDirection)
-                {
-                    case FieldDirection.North:
-                        Y -= action.Value;
-                        break;
-                    case FieldDirection.East:
-                        X += action.Value;
-                        break;
-                    case FieldDirection.South:
-                        Y += action.Value;
-                        break;
-                    case FieldDirection.West:
-                        X -= action.Value;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                TurnRobot(CurrentDirection,action.Value);
             }
             if (action.ActionType == RobotActionType.Rotate)
             {
@@ -123,10 +108,31 @@ namespace RoboRally.Model
             }
         }
 
+        public void TurnRobot(FieldDirection to, int value)
+        {
+            switch (to)
+            {
+                case FieldDirection.North:
+                    _y -= value;
+                    break;
+                case FieldDirection.East:
+                    _x += value;
+                    break;
+                case FieldDirection.South:
+                    _y += value;
+                    break;
+                case FieldDirection.West:
+                    _x -= value;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
         public void SetCurrentPosition(Int32 x, Int32 y)
         {
-            X = x;
-            Y = y;
+            _x = x;
+            _y = y;
         }
 
         public void DoProgramm(int i)
@@ -211,7 +217,7 @@ namespace RoboRally.Model
             }
             else
             {
-                
+                _damage = 2;
             }
         }
 

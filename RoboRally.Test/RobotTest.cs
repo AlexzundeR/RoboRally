@@ -76,6 +76,12 @@ namespace RoboRally.Test
             Assert.IsNull(_robot.GetCard(4));
 
         }
+
+        [TestMethod]
+        public void CrashTest()
+        {
+            
+        }
          
         [TestMethod]
         public void MovesTest()
