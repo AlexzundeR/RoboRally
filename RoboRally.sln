@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboRally.Logic", "RoboRally.Logic\RoboRally.Logic.csproj", "{2FFA4A0C-A977-4AA3-8AB9-FAF48A2BEC14}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboRally.Model", "RoboRally.Model\RoboRally.Model.csproj", "{B9842879-8011-4062-86B1-0100FDD19D6F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboRally.Test", "RoboRally.Test\RoboRally.Test.csproj", "{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test10", "Test10\Test10.csproj", "{7DEB6F64-75DC-4E44-B899-A21F27264F4C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5D67B13B-630B-4D4A-880C-445B25D14F92}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,10 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboRally.Tests", "RoboRally.Tests\RoboRally.Tests.csproj", "{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = RoboRally.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -49,26 +44,26 @@ Global
 		{B9842879-8011-4062-86B1-0100FDD19D6F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B9842879-8011-4062-86B1-0100FDD19D6F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B9842879-8011-4062-86B1-0100FDD19D6F}.Release|x86.ActiveCfg = Release|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{038742B8-3C9C-48A1-8E2D-3D869BDA2CFA}.Release|x86.ActiveCfg = Release|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7DEB6F64-75DC-4E44-B899-A21F27264F4C}.Release|x86.ActiveCfg = Release|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Debug|x86.Build.0 = Debug|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Release|x86.ActiveCfg = Release|Any CPU
+		{EF9D5074-29AC-43DF-A75C-CD7EF68C9CEE}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = RoboRally.Logic\RoboRally.Logic.csproj
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = RoboRally.vsmdi
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
