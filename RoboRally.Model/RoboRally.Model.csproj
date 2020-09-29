@@ -40,7 +40,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="Field.cs" />
-    <Compile Include="FieldDirection.cs" />
+    <Compile Include="ActionDirection.cs" />
     <Compile Include="FieldItem.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="ProgrammCard.cs" />

@@ -11,16 +11,16 @@ namespace RoboRally.Logic
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            //Game game = new Game(4);
-            //game.LoadMap(20,20);
-            //game.Repaint();
-            //while (true)
-            //{
-            //    Console.ReadLine();    
-            //    Console.WriteLine();
-            //    game.GetProgramCards();
-            //    game.DoTurn();
-            //}
+            Game game = new Game(4);
+            game.LoadMap(20, 20);
+            game.Repaint();
+            while (true)
+            {
+                Console.ReadLine();
+                Console.WriteLine();
+                game.GetProgrammCards();
+                game.DoTurn();
+            }
             Console.ReadLine();    
         }
     }

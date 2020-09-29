@@ -9,25 +9,25 @@ namespace RoboRally.Model
     public class Robot
     {
         public static readonly Int32 RegistersCount = 5;
-        public String Name;
-
-        public Byte Lifes;
-
+        
         private Byte _damage;
-
-        public Boolean IsInPowerDown;
-
         private readonly RobotRegister[] _registers;
-
-        public FieldDirection CurrentDirection { get;  set; }
-
         private Int32 _x, _y;
-        public Int32 X { get { return _x; } }
-        public Int32 Y { get { return _y; } }
         private bool _isShutedDown;
         private bool _isCrashed;
 
-        public Robot()
+        public String Name;
+        public Byte Lifes;
+        public Boolean IsInPowerDown;
+        public ActionDirection CurrentDirection;
+        public FieldItem CurrentPosition;
+        public FieldItem Respawn;
+        private string v;
+
+        public Int32 X { get { return _x; } }
+        public Int32 Y { get { return _y; } }
+
+        public Robot(string name)
         {
             _registers = new RobotRegister[RegistersCount];
             for (int i = 0; i < RegistersCount; i++)
@@ -35,6 +35,7 @@ namespace RoboRally.Model
                 _registers[i] = new RobotRegister();
             }
             Lifes = 3;
+            Name = name;
         }
 
         public void DoAction(RobotAction action)
@@ -49,17 +50,17 @@ namespace RoboRally.Model
                 {
                     switch (CurrentDirection)
                     {
-                        case FieldDirection.North:
-                            CurrentDirection = FieldDirection.West;
+                        case ActionDirection.Up:
+                            CurrentDirection = ActionDirection.Left;
                             break;
-                        case FieldDirection.East:
-                            CurrentDirection = FieldDirection.North;
+                        case ActionDirection.Right:
+                            CurrentDirection = ActionDirection.Up;
                             break;
-                        case FieldDirection.South:
-                            CurrentDirection = FieldDirection.East;
+                        case ActionDirection.Down:
+                            CurrentDirection = ActionDirection.Right;
                             break;
-                        case FieldDirection.West:
-                            CurrentDirection = FieldDirection.South;
+                        case ActionDirection.Left:
+                            CurrentDirection = ActionDirection.Down;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -69,17 +70,17 @@ namespace RoboRally.Model
                 {
                     switch (CurrentDirection)
                     {
-                        case FieldDirection.North:
-                            CurrentDirection = FieldDirection.East;
+                        case ActionDirection.Up:
+                            CurrentDirection = ActionDirection.Right;
                             break;
-                        case FieldDirection.East:
-                            CurrentDirection = FieldDirection.South;
+                        case ActionDirection.Right:
+                            CurrentDirection = ActionDirection.Down;
                             break;
-                        case FieldDirection.South:
-                            CurrentDirection = FieldDirection.West;
+                        case ActionDirection.Down:
+                            CurrentDirection = ActionDirection.Left;
                             break;
-                        case FieldDirection.West:
-                            CurrentDirection = FieldDirection.North;
+                        case ActionDirection.Left:
+                            CurrentDirection = ActionDirection.Up;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -89,17 +90,17 @@ namespace RoboRally.Model
                 {
                     switch (CurrentDirection)
                     {
-                        case FieldDirection.North:
-                            CurrentDirection = FieldDirection.South;
+                        case ActionDirection.Up:
+                            CurrentDirection = ActionDirection.Down;
                             break;
-                        case FieldDirection.East:
-                            CurrentDirection = FieldDirection.West;
+                        case ActionDirection.Right:
+                            CurrentDirection = ActionDirection.Left;
                             break;
-                        case FieldDirection.South:
-                            CurrentDirection = FieldDirection.North;
+                        case ActionDirection.Down:
+                            CurrentDirection = ActionDirection.Up;
                             break;
-                        case FieldDirection.West:
-                            CurrentDirection = FieldDirection.East;
+                        case ActionDirection.Left:
+                            CurrentDirection = ActionDirection.Right;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -108,20 +109,20 @@ namespace RoboRally.Model
             }
         }
 
-        public void TurnRobot(FieldDirection to, int value)
+        public void TurnRobot(ActionDirection to, int value)
         {
             switch (to)
             {
-                case FieldDirection.North:
+                case ActionDirection.Up:
                     _y -= value;
                     break;
-                case FieldDirection.East:
+                case ActionDirection.Right:
                     _x += value;
                     break;
-                case FieldDirection.South:
+                case ActionDirection.Down:
                     _y += value;
                     break;
-                case FieldDirection.West:
+                case ActionDirection.Left:
                     _x -= value;
                     break;
                 default:
@@ -144,7 +145,7 @@ namespace RoboRally.Model
         {
             for (int i = 0; i < RegistersCount; i++)
             {
-                if (!_registers[i].IsBreaked())
+                if (!_registers[i].IsBroken())
                 {
                     _registers[i].Clear();
                 }

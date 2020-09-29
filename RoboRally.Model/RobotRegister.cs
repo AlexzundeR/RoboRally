@@ -8,14 +8,15 @@ namespace RoboRally.Model
     public class RobotRegister
     {
         private ProgrammCard _card;
-        private Boolean _isBreaked;
+        private Boolean _isBroken;
 
         public void PutCard(ProgrammCard card)
         {
-            if (_isBreaked)
+            if (_isBroken)
             {
                 throw new InvalidOperationException("Нельзя заполнить заклинивший регистр");
             }
+
             if (_card!=null)
             {
                 throw new InvalidOperationException("Нельзя заполнить заполненный регистр");
@@ -30,17 +31,17 @@ namespace RoboRally.Model
 
         public void Break()
         {
-            _isBreaked = true;
+            _isBroken = true;
         }
 
-        public Boolean IsBreaked()
+        public Boolean IsBroken()
         {
-            return _isBreaked;
+            return _isBroken;
         }
 
         public void Clear()
         {
-            if (_isBreaked)
+            if (_isBroken)
             {
                 throw new InvalidOperationException("Нельзя очистить заклинивший регистр");
             }
@@ -54,7 +55,7 @@ namespace RoboRally.Model
 
         public void Repair()
         {
-            _isBreaked = false;
+            _isBroken = false;
             _card = null;
         }
     }

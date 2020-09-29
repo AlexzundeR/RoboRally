@@ -5,8 +5,8 @@ using System.Text;
 
 namespace RoboRally.Model
 {
-    public enum FieldDirection
+    public enum ActionDirection
     {
-        North, East, South, West
+        Up, Right, Down, Left
     }
 }
